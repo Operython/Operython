@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operython GX — Descarga Oficial</title>
+    <!-- Logo de la pestaña (favicon) -->
+    <link rel="icon" type="image/x-icon" href="icono.ico">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #040d06;
+            background-image: radial-gradient(circle at top center, #092111 0%, #040d06 80%);
+            color: #ffffff;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+            gap: 28px;
+        }
+
+        .card {
+            background-color: #06140a;
+            border: 1px solid #0d2e18;
+            border-radius: 18px;
+            padding: 42px 36px;
+            max-width: 820px;
+            width: 100%;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.75), 0 0 35px rgba(0, 255, 102, 0.08);
+            text-align: center;
+        }
+
+        .badge {
+            display: inline-block;
+            background-color: #092111;
+            border: 1px solid #00ff66;
+            color: #00ff66;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            padding: 5px 14px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        h1 span, h2 span {
+            color: #00ff66;
+            text-shadow: 0 0 18px rgba(0, 255, 102, 0.5);
+        }
+
+        h2 {
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .slogan {
+            color: #a3c2ad;
+            font-size: 19px;
+            margin-bottom: 22px;
+            line-height: 1.5;
+        }
+
+        .description {
+            color: #c8ded0;
+            font-size: 15px;
+            line-height: 1.65;
+            max-width: 660px;
+            margin: 0 auto 30px auto;
+        }
+
+        /* Cuadrícula de características principales */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+            gap: 14px;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .feature-item {
+            background-color: #092111;
+            border: 1px solid #0d2e18;
+            border-radius: 12px;
+            padding: 16px;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .feature-item:hover {
+            border-color: #00ff66;
+            transform: translateY(-2px);
+        }
+
+        .feature-title {
+            color: #00ff66;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 6px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .feature-desc {
+            color: #a3c2ad;
+            font-size: 13px;
+            line-height: 1.45;
+        }
+
+        /* Caja de instrucciones */
+        .install-box {
+            background-color: rgba(4, 13, 6, 0.75);
+            border: 1px dashed #1b4d2b;
+            border-radius: 10px;
+            padding: 16px 20px;
+            margin-bottom: 28px;
+            font-size: 13.5px;
+            color: #b4d1be;
+            line-height: 1.6;
+            text-align: left;
+        }
+
+        .install-box strong {
+            color: #ffffff;
+        }
+
+        .install-box code {
+            background-color: #092111;
+            color: #00ff66;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: Consolas, monospace;
+        }
+
+        .install-box ol {
+            margin-left: 20px;
+            margin-top: 6px;
+        }
+
+        .install-box li {
+            margin-bottom: 4px;
+        }
+
+        /* Botón principal de descarga */
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #00ff66;
+            color: #040d06;
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: 800;
+            padding: 16px 38px;
+            border-radius: 10px;
+            transition: transform 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+            box-shadow: 0 0 22px rgba(0, 255, 102, 0.35);
+        }
+
+        .btn-download:hover {
+            background-color: #33ff85;
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 255, 102, 0.6);
+        }
+
+        .btn-download:active {
+            transform: translateY(0);
+        }
+
+        /* Botón secundario (Extensión / Scripts) */
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: #0d2e18;
+            border: 1px solid #00ff66;
+            color: #00ff66;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            padding: 11px 20px;
+            border-radius: 8px;
+            transition: all 0.15s ease;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            background-color: #00ff66;
+            color: #040d06;
+            box-shadow: 0 0 18px rgba(0, 255, 102, 0.4);
+        }
+
+        /* Lista de Scripts Web descargables */
+        .scripts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 14px;
+            margin-top: 10px;
+        }
+
+        .script-card {
+            background-color: #092111;
+            border: 1px solid #0d2e18;
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: left;
+            gap: 14px;
+            transition: border-color 0.2s ease;
+        }
+
+        .script-card:hover {
+            border-color: #00ff66;
+        }
+
+        .script-name {
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .script-site {
+            color: #5c8a6b;
+            font-size: 12px;
+            font-family: Consolas, monospace;
+        }
+
+        .version-info {
+            margin-top: 16px;
+            font-size: 13px;
+            color: #5c7a66;
+        }
+    </style>
+</head>
+
+<body>
+<div id="vista-principal" style="width: 100%; display: flex; flex-direction: column; align-items: center; gap: 28px;">
+
+    <!-- SECCIÓN 1: NAVEGADOR OPERYTHON GX -->
+    <div class="card">
+        <div class="badge">Versión 1.24.10</div>
+        <h1>Operython <span>GX</span></h1>
+        <p class="slogan">Control total, a la velocidad de Python</p>
+
+        <p class="description">
+            Un navegador web ligero, personalizable y enfocado en el rendimiento, diseñado para separar tu ocio de tu trabajo sin perder velocidad ni privacidad.
+        </p>
+
+        <div class="features-grid">
+            <div class="feature-item">
+                <div class="feature-title">🕹️ 2 Workspaces</div>
+                <div class="feature-desc">Alterna entre los tableros de <strong>Juegos</strong> e <strong>Investigación</strong>. Tus pestañas se guardan y restauran solas.</div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-title">🧩 Scripts Web Seguros</div>
+                <div class="feature-desc">Modifica estilos, oculta elementos o activa modo oscuro por dominio, activando cada función a tu gusto.</div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-title">🛡️ Adblock Integrado</div>
+                <div class="feature-desc">Bloqueador nativo con control por página para navegar limpio y sin interrupciones.</div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-title">💬 Panel Lateral Rápido</div>
+                <div class="feature-desc">Acceso integrado a Discord, Spotify, historial, descargas y 3 slots configurables.</div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-title">🎨 Personalización Total</div>
+                <div class="feature-desc">9 temas de color, Startpage con fondo propio (imagen o GIF), música ambiente y control de WebGL.</div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-title">🎮 Game Proyect Incluido</div>
+                <div class="feature-desc">Incluye minijuegos locales listos para jugar directamente dentro de la carpeta del sistema.</div>
+            </div>
+        </div>
+
+        <div class="install-box">
+            <strong>⚠️ Requisito indispensable:</strong> Es obligatorio tener <strong>Python 3</strong> instalado en tu PC antes de iniciar (descárgalo desde <code>python.org</code> y marca <em>"Add Python to PATH"</em> durante la instalación).
+            <br><br>
+            <strong>📌 Cómo instalar el navegador:</strong>
+            <ol>
+                <li>Descarga el archivo <code>Operython system.zip</code>.</li>
+                <li>Entra a tu carpeta <strong>Documentos</strong> en Windows y extrae allí la carpeta <code>Operython system</code>.</li>
+                <li>Abre la carpeta y ejecuta el archivo <code>.bat</code> para preparar el entorno automáticamente.</li>
+            </ol>
+        </div>
+
+        <a href="Operython%20system.zip" download="Operython system.zip" class="btn-download">
+            <span>⬇</span> Descargar Operython GX
+        </a>
+
+        <p class="version-info">Windows • Requiere Python 3 instalado • Archivo: Operython system.zip</p>
+    </div>
+
+    <!-- SECCIÓN 2: MÁS INFORMACIÓN E ILUSTRACIÓN DE LA INTERFAZ -->
+    <div class="card">
+        <div class="badge">Arquitectura e Interfaz</div>
+        <h2>¿Por qué <span>Operython GX</span>?</h2>
+        <p class="description" style="margin-bottom: 24px;">
+            Construido con <strong>Python y PySide6</strong>, Operython GX está diseñado para darte control transparente sobre el rendimiento, el audio, la estética y la privacidad sin telemetría ni procesos ocultos.
+        </p>
+
+        <!-- ILUSTRACIÓN FIEL A LA INTERFAZ REAL DE OPERYTHON GX -->
+        <div style="background: #040d06; border: 1px solid #163b22; border-radius: 14px; overflow: hidden; margin-bottom: 28px; box-shadow: 0 12px 35px rgba(0,0,0,0.65); text-align: left;">
+            
+            <!-- 1. BARRA DE DIRECCIONES ARRIBA DEL TODO (Como en la captura) -->
+            <div style="background: #06140a; border-bottom: 1px solid #0d2e18; padding: 7px 10px; display: flex; align-items: center; gap: 6px; font-size: 11px;">
+                <span style="background: #0d2e18; border: 1px solid #1b4d2b; padding: 4px 8px; border-radius: 5px; color: #a3c2ad;">⬅</span>
+                <span style="background: #0d2e18; border: 1px solid #1b4d2b; padding: 4px 8px; border-radius: 5px; color: #a3c2ad;">➡</span>
+                <span style="background: #0d2e18; border: 1px solid #1b4d2b; padding: 4px 8px; border-radius: 5px; color: #33b5e5;">🔄</span>
+                <span style="background: #0d2e18; border: 1px solid #1b4d2b; padding: 4px 8px; border-radius: 5px; color: #ffcc00;" title="Reinicio maestro">⚡</span>
+                
+                <!-- Control de Zoom -->
+                <div style="display: inline-flex; align-items: center; gap: 3px; margin: 0 2px;">
+                    <span style="background: #0d2e18; border: 1px solid #1b4d2b; padding: 3px 6px; border-radius: 4px; color: #ffffff; font-weight: bold;">+</span>
+                    <span style="background: #092111; border: 1px solid #1b4d2b; padding: 3px 8px; border-radius: 4px; color: #ffffff; font-weight: 700;">100%</span>
+                    <span style="background: #0d2e18; border: 1px solid #1b4d2b; padding: 3px 6px; border-radius: 4px; color: #ffffff; font-weight: bold;">−</span>
+                </div>
+
+                <!-- Input URL -->
+                <div style="flex: 1; background: #0d2e18; border: 1px solid #00ff66; color: #ffffff; padding: 5px 12px; border-radius: 6px; font-family: Consolas, monospace; font-size: 11px; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;">
+                    https://operython
+                </div>
+
+                <span style="background: #0d2e18; border: 1px solid #1b4d2b; padding: 4px 8px; border-radius: 5px;">💾</span>
+                <span style="background: #00ff66; color: #040d06; padding: 4px 12px; border-radius: 5px; font-weight: 800;">Ir</span>
+                <span style="background: #0d2e18; border: 1px solid #1b4d2b; padding: 4px 8px; border-radius: 5px; color: #a3c2ad;">⛶</span>
+            </div>
+
+            <!-- 2. CONTENEDOR PRINCIPAL: BARRA LATERAL + ZONA DE PESTAÑAS -->
+            <div style="display: flex; min-height: 265px;">
+                
+                <!-- Barra lateral izquierda -->
+                <div style="width: 44px; background: #06140a; border-right: 1px solid #0d2e18; padding: 8px 4px; display: flex; flex-direction: column; align-items: center; justify-content: space-between; font-size: 13px;">
+                    <div style="display: flex; flex-direction: column; gap: 7px; align-items: center; width: 100%;">
+                        <span style="background: #0d2e18; border-left: 2px solid #00ff66; padding: 4px 0; width: 100%; text-align: center; border-radius: 4px;">🕹️</span>
+                        <span>🔬</span>
+                        <span>💬</span>
+                        <span>🎵</span>
+                        <span>📜</span>
+                        <span>📥</span>
+                        <span>🧩</span>
+                        <span>🛡️</span>
+                        <span>⚙️</span>
+                    </div>
+
+                    <!-- Controles inferiores: Mute + Favicons de accesos rápidos -->
+                    <div style="display: flex; flex-direction: column; gap: 6px; align-items: center; width: 100%; margin-top: 14px;">
+                        <span style="background: #0d2e18; border: 1px solid #1b4d2b; border-radius: 5px; font-size: 11px; padding: 3px 6px;">🔇</span>
+                        <span style="background: #0d2e18; border: 1px solid #1b4d2b; border-radius: 5px; width: 26px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #ff3b3b; font-weight: bold;">▶</span>
+                        <span style="background: #0d2e18; border: 1px solid #1b4d2b; border-radius: 5px; width: 26px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 11px; color: #4285f4; font-weight: 800;">G</span>
+                        <span style="background: #0d2e18; border: 1px solid #1b4d2b; border-radius: 5px; width: 26px; height: 22px; display: flex; align-items: center; justify-content: center; font-size: 9px; color: #a3c2ad; font-weight: bold;">N3</span>
+                    </div>
+                </div>
+
+                <!-- Zona derecha: Fila de pestañas + Contenido -->
+                <div style="flex: 1; display: flex; flex-direction: column;">
+                    
+                    <!-- Fila de pestañas debajo de la barra URL -->
+                    <div style="background: #040d06; border-bottom: 1px solid #0d2e18; padding: 5px 8px 0 8px; display: flex; align-items: center; gap: 6px;">
+                        <span style="display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 50%; border: 1px solid #1b4d2b; color: #a3c2ad; font-size: 13px; margin-bottom: 4px;">+</span>
+                        
+                        <!-- Pestaña activa -->
+                        <div style="background: #0d2e18; border-top: 2px solid #00ff66; color: #00ff66; padding: 5px 12px; border-radius: 6px 6px 0 0; font-size: 11px; font-weight: 700; display: flex; align-items: center; gap: 8px;">
+                            <span style="color: #a3c2ad; font-size: 10px;">🔊</span>
+                            <span>Startpage</span>
+                            <span style="background: #ff3b3b; color: #ffffff; border-radius: 3px; padding: 0 4px; font-size: 9px; line-height: 14px;">×</span>
+                        </div>
+                    </div>
+
+                    <!-- Vista previa de Operython Startpage -->
+                    <div style="flex: 1; background: radial-gradient(circle at center, #0b2915 0%, #040d06 85%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 22px 16px; text-align: center;">
+                        <div style="font-size: 24px; font-weight: 800; letter-spacing: 2px; margin-bottom: 14px;">
+                            OPERYTHON<span style="color: #00ff66;">GX</span>
+                        </div>
+                        <!-- Buscador Startpage -->
+                        <div style="display: flex; align-items: center; background: rgba(9, 33, 17, 0.9); border: 1px solid #1b4d2b; border-radius: 24px; padding: 4px 6px 4px 10px; width: 100%; max-width: 380px; margin-bottom: 18px; gap: 8px;">
+                            <span style="background: #040d06; border: 1px solid #163b22; color: #a3c2ad; font-size: 10px; padding: 3px 8px; border-radius: 12px;">Google ▾</span>
+                            <span style="flex: 1; text-align: left; color: #6e947b; font-size: 11px;">Buscar en la web...</span>
+                            <span style="background: #00ff66; color: #040d06; font-size: 11px; font-weight: 800; padding: 4px 12px; border-radius: 14px;">Buscar</span>
+                        </div>
+                        <!-- Baldosas de accesos directos -->
+                        <div style="display: flex; gap: 12px; justify-content: center;">
+                            <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                                <div style="width: 36px; height: 36px; background: #092111; border: 1px solid #1b4d2b; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px;">▶️</div>
+                                <span style="font-size: 10px; color: #c8ded0;">YouTube</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                                <div style="width: 36px; height: 36px; background: #092111; border: 1px solid #1b4d2b; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 14px;">🐱</div>
+                                <span style="font-size: 10px; color: #c8ded0;">Scratch</span>
+                            </div>
+                            <div style="display: flex; flex-direction: column; align-items: center; gap: 4px;">
+                                <div style="width: 36px; height: 36px; background: rgba(9, 33, 17, 0.5); border: 1px dashed #2d6e42; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 15px; color: #00ff66;">+</div>
+                                <span style="font-size: 10px; color: #8fb39b;">Añadir</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- 12 TARJETAS DE INFORMACIÓN DETALLADA -->
+        <div class="features-grid" style="margin-bottom: 10px;">
+            <div class="feature-item">
+                <div class="feature-title">⚡ Motor Híbrido Inteligente</div>
+                <div class="feature-desc">Combina <strong>Qt WebEngine</strong> con respaldo automático en <strong>WebView2</strong> para garantizar fluidez en videos, directos y juegos web sin cortes.</div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-title">🎮 Selector WebGL (GPU / CPU)</div>
+                <div class="feature-desc">Elige entre aceleración por hardware <strong>GPU</strong> o modo compatibilidad <strong>SwiftShader</strong> desde Ajustes para correr juegos 3D en cualquier PC.</div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-title">🔒 Privacidad 100% Local</div>
+                <div class="feature-desc">Tus pestañas, historial, descargas, temas y ajustes se guardan en un único archivo <code>config_maestra_operython.json</code> en tu equipo, sin nube ni rastreo.</div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-title">🛠️ Editor Visual de Scripts</div>
+                <div class="feature-desc">Incluye <code>EditorScripts.py</code> para crear, validar y empaquetar tus propios scripts web sin riesgos, con control granular para activar o desactivar cada función.</div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-title">🔇 Silenciado por Pestaña</div>
+                <div class="feature-desc">Cada pestaña tiene su propio botón de volumen independiente para mutear música o anuncios en segundo plano con un solo clic.</div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-title">🎧 Música Ambiente y Efectos</div>
+                <div class="feature-desc">Carga tu propia pista <code>.mp3</code> de fondo desde la barra lateral y regula por separado el volumen de la música, interfaz y clicks.</div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-title">📌 3 Slots Rápidos (N1, N2, N3)</div>
+                <div class="feature-desc">Configura con clic derecho tus 3 páginas favoritas en la esquina inferior izquierda, con descarga automática del icono del sitio y atajos <code>Alt+1..3</code>.</div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-title">🌌 Startpage Personalizable</div>
+                <div class="feature-desc">Accede mediante <code>https://operython</code> o <code>https://startpage</code>, cambia entre Google, Bing, DuckDuckGo o Brave y pon imágenes o GIFs de fondo.</div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-title">⚡ Reinicio Maestro Instantáneo</div>
+                <div class="feature-desc">El botón relámpago de la barra superior guarda tu sesión exacta y reinicia el navegador en limpio en un segundo para liberar memoria.</div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-title">📂 Lector de Archivos Locales</div>
+                <div class="feature-desc">Abre archivos <code>.html</code>, imágenes, PDFs o proyectos locales directamente en una pestaña usando el botón 💾 de la barra de direcciones.</div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-title">⌨️ Atajos y Pantalla Completa</div>
+                <div class="feature-desc">Soporta <code>Ctrl+T</code>, <code>Ctrl+W</code>, <code>Ctrl+1..9</code>, <code>F5</code>, zoom rápido (30% a 400%) y modo inmersivo sin bordes con <code>F11</code> o <code>Esc</code>.</div>
+            </div>
+
+            <div class="feature-item">
+                <div class="feature-title">🚀 Entorno Auto-Configurado</div>
+                <div class="feature-desc">El lanzador <code>.bat</code> crea un entorno virtual aislado (<code>op_env</code>) e instala automáticamente PySide6 y el SDK de WebView2 si faltan.</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 3: EXTENSIÓN OPERYTHON SCRIPTS -->
+    <div class="card">
+        <div class="badge">Extensión Oficial (v1.0)</div>
+        <h2>Operython <span>Scripts</span></h2>
+        <p class="description" style="margin-bottom: 22px;">
+            ¿Usas Google Chrome u otro navegador basado en Chromium (Edge, Brave, Opera)? Instala la extensión oficial <strong>Operython Scripts</strong> para importar y ejecutar los mismos paquetes de scripts web fuera de Operython GX.
+        </p>
+
+        <div class="install-box">
+            <strong>🔌 Cómo instalar la extensión en Google Chrome:</strong>
+            <ol>
+                <li>Descarga el archivo <code>Operython scripts.zip</code> y descomprímelo en una carpeta que no vayas a borrar (por ejemplo, dentro de <strong>Documentos</strong>).</li>
+                <li>Abre Google Chrome y escribe en la barra de direcciones: <code>chrome://extensions</code>.</li>
+                <li>Activa el interruptor <strong>Modo de desarrollador</strong> que aparece en la esquina superior derecha.</li>
+                <li>Haz clic en el botón <strong>Cargar descomprimida</strong> (arriba a la izquierda) y selecciona la carpeta que extrajiste (la que contiene el archivo <code>manifest.json</code>).</li>
+            </ol>
+        </div>
+
+        <a href="Operython%20scripts.zip" download="Operython scripts.zip" class="btn-download">
+            <span>🧩</span> Descargar Extensión (.zip)
+        </a>
+    </div>
+
+    <!-- SECCIÓN 4: TIENDA DE SCRIPTS WEB -->
+    <div class="card">
+        <div class="badge">Complementos</div>
+        <h2>Scripts <span>Web</span></h2>
+        <p class="description" style="margin-bottom: 22px;">
+            Personaliza tus sitios favoritos con paquetes de scripts listos para usar. Activa o desactiva cada función individualmente desde el panel 🧩 de Operython.
+        </p>
+
+        <div class="install-box">
+            <strong>📂 Cómo instalar un Script Web en Operython GX:</strong>
+            <ol>
+                <li>Descarga el archivo <code>.zip</code> del script que quieras abajo.</li>
+                <li>Ve a <strong>Documentos</strong> &rarr; entra en <code>Operython system</code> &rarr; abre la carpeta <code>scripts_web</code>.</li>
+                <li>Pega el <code>.zip</code> adentro y haz clic derecho &rarr; <strong>Extraer aquí</strong> (debe quedar la carpeta con su <code>script.txt</code> y <code>assets</code>).</li>
+                <li>En Operython GX, abre el panel 🧩 y pulsa <strong>Actualizar lista y páginas</strong>.</li>
+            </ol>
+        </div>
+
+        <div class="scripts-grid">
+            <div class="script-card">
+                <div>
+                    <div class="script-name">Simplified YouTube</div>
+                    <div class="script-site">youtube.com</div>
+                </div>
+                <a href="Simplified%20YouTube.zip" download="Simplified YouTube.zip" class="btn-secondary">⬇ Descargar ZIP</a>
+            </div>
+
+            <div class="script-card">
+                <div>
+                    <div class="script-name">Black Scratch</div>
+                    <div class="script-site">scratch.mit.edu</div>
+                </div>
+                <a href="Black%20Scratch.zip" download="Black Scratch.zip" class="btn-secondary">⬇ Descargar ZIP</a>
+            </div>
+
+            <div class="script-card">
+                <div>
+                    <div class="script-name">Y2mate no ads</div>
+                    <div class="script-site">y2mate.com</div>
+                </div>
+                <a href="Y2mate%20no%20ads.zip" download="Y2mate no ads.zip" class="btn-secondary">⬇ Descargar ZIP</a>
+            </div>
+
+            <div class="script-card">
+                <div>
+                    <div class="script-name">Google Minimal Dark</div>
+                    <div class="script-site">google.com</div>
+                </div>
+                <a href="Google%20Minimal%20Dark.zip" download="Google Minimal Dark.zip" class="btn-secondary">⬇ Descargar ZIP</a>
+            </div>
+
+            <div class="script-card">
+                <div>
+                    <div class="script-name">Wikipedia Dark Reader</div>
+                    <div class="script-site">wikipedia.org</div>
+                </div>
+                <a href="Wikipedia%20Dark%20Reader.zip" download="Wikipedia Dark Reader.zip" class="btn-secondary">⬇ Descargar ZIP</a>
+            </div>
+
+            <div class="script-card">
+                <div>
+                    <div class="script-name">Poki Clean Gaming</div>
+                    <div class="script-site">poki.com</div>
+                </div>
+                <a href="Poki%20Clean%20Gaming.zip" download="Poki Clean Gaming.zip" class="btn-secondary">⬇ Descargar ZIP</a>
+            </div>
+
+            <div class="script-card">
+                <div>
+                    <div class="script-name">Discord Streamer Mode</div>
+                    <div class="script-site">discord.com</div>
+                </div>
+                <a href="Discord%20Streamer%20Mode.zip" download="Discord Streamer Mode.zip" class="btn-secondary">⬇ Descargar ZIP</a>
+            </div>
+
+            <div class="script-card">
+                <div>
+                    <div class="script-name">GitHub Code Focus</div>
+                    <div class="script-site">github.com</div>
+                </div>
+                <a href="GitHub%20Code%20Focus.zip" download="GitHub Code Focus.zip" class="btn-secondary">⬇ Descargar ZIP</a>
+            </div>
+
+            <div class="script-card">
+                <div>
+                    <div class="script-name">Twitch Clean Stream</div>
+                    <div class="script-site">twitch.tv</div>
+                </div>
+                <a href="Twitch%20Clean%20Stream.zip" download="Twitch Clean Stream.zip" class="btn-secondary">⬇ Descargar ZIP</a>
+            </div>
+
+            <div class="script-card">
+                <div>
+                    <div class="script-name">Spotify Compact Panel</div>
+                    <div class="script-site">://spotify.com</div>
+                </div>
+                <a href="Spotify%20Compact%20Panel.zip" download="Spotify Compact Panel.zip" class="btn-secondary">⬇ Descargar ZIP</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- PIE DE PÁGINA CON AVISO LEGAL Y BOTÓN GRIS CLARO -->
+    <footer style="max-width: 820px; width: 100%; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; padding: 14px 20px; background-color: rgba(6, 20, 10, 0.85); border: 1px solid #0d2e18; border-radius: 12px; font-size: 13px; color: #8fb39b;">
+        <span>Al instalar cualquiera de nuestros sistemas automáticamente acepta todos los términos y condiciones.</span>
+        <button type="button" onclick="mostrarPrivacidad()" style="background-color: #d1d5db; color: #111827; border: none; border-radius: 7px; padding: 8px 16px; font-size: 13px; font-weight: 700; cursor: pointer; transition: background-color 0.15s ease;">
+            Términos de privacidad
+        </button>
+    </footer>
+
+</div> <!-- Cierre de #vista-principal -->
+
+<!-- SECCIÓN 4: VISTA COMPLETA DE TÉRMINOS DE PRIVACIDAD Y CONDICIONES (Oculta por defecto) -->
+<div id="vista-privacidad" style="display: none; max-width: 820px; width: 100%; flex-direction: column; gap: 20px;">
+    
+    <!-- Barra superior con botón para volver -->
+    <div style="display: flex; justify-content: flex-start; width: 100%;">
+        <button type="button" onclick="volverInicio()" class="btn-secondary">
+            ⬅ Volver al inicio
+        </button>
+    </div>
+
+    <div class="card" style="text-align: left; padding: 40px 36px;">
+        <div style="text-align: center; margin-bottom: 28px;">
+            <div class="badge">Documento Legal • Versión 1.24.10</div>
+            <h2>Términos de <span>Privacidad</span> y Condiciones</h2>
+            <p class="version-info" style="margin-top: 8px;">Última actualización: Noviembre de 2026 • Ecosistema Operython GX</p>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 22px; color: #c8ded0; font-size: 14.5px; line-height: 1.75;">
+            
+            <div>
+                <h3 style="color: #00ff66; font-size: 17px; margin-bottom: 8px;">1. Aceptación de los Términos</h3>
+                <p>
+                    Al descargar, descomprimir, instalar o ejecutar cualquiera de los programas, extensiones o paquetes pertenecientes al ecosistema <strong>Operython GX</strong> (incluyendo el navegador <em>Operython system</em>, la extensión <em>Operython Scripts</em> y los complementos de la carpeta <em>scripts_web</em>), usted reconoce haber leído, comprendido y aceptado de forma automática e irrevocable la totalidad de los presentes Términos de Privacidad y Condiciones de Uso. Si no está de acuerdo con alguna de estas disposiciones, deberá abstenerse de instalar o utilizar el software y eliminar todos los archivos asociados de su equipo.
+                </p>
+            </div>
+
+            <div>
+                <h3 style="color: #00ff66; font-size: 17px; margin-bottom: 8px;">2. Arquitectura Local y Cero Telemetría</h3>
+                <p>
+                    Operython GX está diseñado bajo una filosofía estricta de privacidad local (<em>Local-First</em>). El software no posee servidores centrales de recolección de datos, no utiliza sistemas de analítica externa, ni envía información de diagnóstico, métricas de uso, direcciones IP o hábitos de navegación a los desarrolladores ni a terceros. Toda su actividad permanece exclusivamente dentro de su computadora personal.
+                </p>
+                <p style="margin-top: 10px;">
+                    La totalidad de sus preferencias —incluyendo pestañas abiertas en los workspaces de Juegos e Investigación, historial de navegación, registro de descargas, accesos rápidos, rutas de fondos de pantalla, pistas de audio locales y el estado de activación de los scripts— se almacena únicamente en el archivo local <code>config_maestra_operython.json</code> y en la carpeta de almacenamiento persistente dentro de su directorio de usuario en Windows.
+                </p>
+            </div>
+
+            <div>
+                <h3 style="color: #00ff66; font-size: 17px; margin-bottom: 8px;">3. Motores de Renderizado y Conexiones a Terceros</h3>
+                <p>
+                    Para mostrar contenido web, Operython GX utiliza los motores de renderizado integrados <strong>Qt WebEngine</strong> (basado en Chromium) y <strong>Microsoft Edge WebView2</strong> como respaldo automático para contenido multimedia o transmisiones en vivo. Al visitar sitios web externos (como Google, YouTube, Discord, Spotify, Scratch o Poki) a través del navegador o de sus paneles laterales, dichos sitios aplicarán sus propias políticas de privacidad, cookies y términos de servicio, sobre los cuales Operython GX no ejerce control ni responsabilidad.
+                </p>
+                <p style="margin-top: 10px;">
+                    Asimismo, para obtener los iconos visuales (favicons) de los accesos directos configurados por el usuario, el navegador realiza consultas directas al servicio público de favicons de Google utilizando únicamente el dominio solicitado.
+                </p>
+            </div>
+
+            <div>
+                <h3 style="color: #00ff66; font-size: 17px; margin-bottom: 8px;">4. Sistema de Scripts Web y Seguridad</h3>
+                <p>
+                    El módulo <strong>Scripts Web</strong> (tanto en Operython GX como en la extensión <em>Operython Scripts</em>) opera bajo un lenguaje declarativo restringido. Por razones de seguridad, los archivos <code>script.txt</code> no permiten ejecutar código Python ni JavaScript arbitrario, no pueden realizar peticiones de red externas ni capturar pulsaciones de teclado o formularios. Su alcance se limita a modificaciones visuales (ocultar/mostrar selectores CSS, cambiar estilos permitidos, insertar imágenes locales de la carpeta <code>assets</code> o bloquear redirecciones externas) únicamente en los dominios explícitamente autorizados por el usuario.
+                </p>
+                <p style="margin-top: 10px;">
+                    Aun así, el usuario es el único responsable de verificar el origen y contenido de los paquetes <code>.txt</code> o carpetas que decida importar o descomprimir dentro de <code>scripts_web</code>.
+                </p>
+            </div>
+
+            <div>
+                <h3 style="color: #00ff66; font-size: 17px; margin-bottom: 8px;">5. Bloqueador de Anuncios (Adblock) y Responsabilidad del Usuario</h3>
+                <p>
+                    Operython GX incorpora un filtro visual de publicidad diseñado para mejorar la experiencia de lectura y rendimiento, manteniendo visibles aquellos elementos identificados como eventos o avisos comunitarios, y permitiendo al usuario desactivarlo de forma general o por sitio web. El uso de esta herramienta queda bajo la entera discreción y responsabilidad del usuario respecto a los términos de uso de las plataformas que visite.
+                </p>
+            </div>
+
+            <div>
+                <h3 style="color: #00ff66; font-size: 17px; margin-bottom: 8px;">6. Descargas, Archivos Locales y Dependencias</h3>
+                <p>
+                    Durante la primera ejecución, el script lanzador (<code>.bat</code>) crea un entorno virtual aislado de Python (<code>op_env</code>) en su carpeta <em>Documentos</em> y descarga desde repositorios oficiales (PyPI, Microsoft y NuGet) las librerías necesarias para su funcionamiento (como <code>PySide6</code>, <code>pythonnet</code> y <code>WebView2</code>). Operython GX no se hace responsable por archivos, ejecutables o contenido multimedia que el usuario descargue desde Internet utilizando el gestor integrado o herramientas de terceros.
+                </p>
+            </div>
+
+            <div>
+                <h3 style="color: #00ff66; font-size: 17px; margin-bottom: 8px;">7. Exclusión de Garantías y Modificaciones</h3>
+                <p>
+                    El software se entrega <strong>"tal cual" (AS IS)</strong>, sin garantías expresas ni implícitas de ningún tipo, incluyendo disponibilidad ininterrumpida o compatibilidad con todos los sitios web de terceros. Los desarrolladores de Operython GX se reservan el derecho de actualizar, modificar o ampliar estos Términos de Privacidad y Condiciones en futuras versiones del sistema sin previo aviso.
+                </p>
+            </div>
+
+        </div>
+
+        <div style="margin-top: 32px; padding-top: 20px; border-top: 1px solid #0d2e18; display: flex; justify-content: center;">
+            <button type="button" onclick="volverInicio()" class="btn-download">
+                ⬅ Volver a Operython GX
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function mostrarPrivacidad() {
+        document.getElementById("vista-principal").style.display = "none";
+        document.getElementById("vista-privacidad").style.display = "flex";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function volverInicio() {
+        document.getElementById("vista-privacidad").style.display = "none";
+        document.getElementById("vista-principal").style.display = "flex";
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+</script>
+
+</body>
+</html>
